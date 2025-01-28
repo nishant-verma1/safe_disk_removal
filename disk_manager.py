@@ -4308,6 +4308,7 @@ class DiskManager(object):
         for k, v in sd_devices_filtered.items():
             serial = v['Serial']
             log.INFO("Blinking the Drive: %s" % serial)
+            cmd = "disk_operator led_on %s" % serial
             rv, out, err = timed_command(cmd)
             if not rv:
                 log.INFO("Failed to blink the Drive %s " % serial)
