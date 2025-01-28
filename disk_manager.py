@@ -4302,7 +4302,7 @@ class DiskManager(object):
         out = json.loads(out)
         log.INFO(out)
         sd_devices = {k: {'Disk': v['Disk'], 'Serial': v['Serial']} 
-                      for k, v in out.items() if v['Disk'].startswith('/dev/sd')}
+                      for k, v in out.items()}
         sd_devices_filtered = {k: v for k, v in sd_devices.items() 
                                if v['Serial'] != disk_serial_short}
         for k, v in sd_devices_filtered.items():
